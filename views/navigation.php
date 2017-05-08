@@ -17,22 +17,14 @@
 
                     <?php
                       foreach($data as $key=>$val) {
-                        echo "<li><a href='" . $val . "'>" . $key . "</a></li>";
-                      }
+                        if ($key === "Login"){
+                          echo "<li class='active'><a href='" . $val . "'>" . $key . "</a></li>";
+                        } else {
+                          echo "<li><a href='" . $val . "'>" . $key . "</a></li>";
+                        }
 
+                      }
                     ?>
-                    <!-- <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

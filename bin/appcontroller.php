@@ -1,6 +1,4 @@
 <?php
-// echo "</br>appcontroller.php loaded";
-
 class AppController
 {
 
