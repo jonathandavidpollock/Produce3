@@ -13,6 +13,11 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <?php
+      if($data !== null){
+        echo $data;
+      }
+    ?>
 
     <!-- Theme CSS -->
     <link href="../assets/css/freelancer.min.css" rel="stylesheet">

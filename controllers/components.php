@@ -1,6 +1,6 @@
 <?php
 
-class api extends AppController {
+class components extends AppController {
 
   public function __construct() {
 
@@ -19,17 +19,19 @@ class api extends AppController {
       "Home"=>"/welcome",
       "API"=>"/api",
       "Components"=>"/components",
-      "Login"=>"/welcome/login",
+      "Login"=>"/welcome/login"
     );
     $this->getView("navigation", $nav);
   }
 
   function body_content(){
     $data = "<link rel='stylesheet' href='assets/css/components.css'>";
+    include "views/components/progressbar.php";
+    include "views/components/popovers.php";
     include "views/components/carousel.php";
     include "views/components/modal.php";
-    include "views/components/popovers.php";
-    include "views/components/progressbar.php";
+
+
   }
 
 }

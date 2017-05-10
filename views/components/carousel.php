@@ -1,13 +1,14 @@
+<h2 style="margin:5rem 0;">Carousel</h2>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="..." alt="First slide">
+    <div class="item active item-active">
+      <img class="d-block img-fluid" src="./assets/img/portfolio/cabin.png" alt="First slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="..." alt="Second slide">
+    <div class="item">
+      <img class="d-block img-fluid" src="./assets/img/portfolio/cake.png" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="..." alt="Third slide">
+    <div class="item">
+      <img class="d-block img-fluid" src="./assets/img/portfolio/circus.png" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

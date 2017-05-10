@@ -7,7 +7,8 @@ class welcome extends AppController {
   }
 
   function index() {
-    $this->getView("header", array("pagename"=>"welcome"));
+    $data = "<link rel='stylesheet' href='assets/css/components.css'>";
+    $this->getView("header", $data);
     $this->make_nav();
     $this->getView("welcome");
     $this->getView("footer");
@@ -17,17 +18,16 @@ class welcome extends AppController {
     $nav = array(
       "Home"=>"/welcome",
       "Api"=>"/api",
+      "Components"=>"/components",
       "Login"=>"/welcome/login",
     );
     $this->getView("navigation", $nav);
   }
 
-  function about() {
-    $this->getView("about");
-  }
 
   function login() {
-    $this->getView("header", array("pagename"=>"welcome"));
+    $data = "<link rel='stylesheet' href='../assets/css/components.css'>";
+    $this->getView("header", $data);
     $this->getView("login");
     $this->getView("footer");
   }
