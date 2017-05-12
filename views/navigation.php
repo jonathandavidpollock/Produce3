@@ -17,7 +17,7 @@
 
                     <?php
                       foreach($data as $key=>$val) {
-                        if ($key === "Login"){
+                        if ($val == "/" . $currentPage["pagename"]){
                           echo "<li class='active'><a href='" . $val . "'>" . $key . "</a></li>";
                         } else {
                           echo "<li><a href='" . $val . "'>" . $key . "</a></li>";

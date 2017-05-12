@@ -17,11 +17,13 @@ class api extends AppController {
   function make_nav() {
     $nav = array(
       "Home"=>"/welcome",
-      "API"=>"/api",
+      "Api"=>"/api",
       "Components"=>"/components",
+      "Create Account"=>"/welcome/account",
       "Login"=>"/welcome/login",
     );
-    $this->getView("navigation", $nav);
+    $data = array("pagename"=>"api");
+    $this->getView("navigation", $nav, $data);
   }
 
   function body_content(){

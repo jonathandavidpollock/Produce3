@@ -15,7 +15,8 @@ $config = array(
 
   //localhost/234/mike/yellow
   include 'router.php';
-  if ($urlPathParts[0] == 'assets') {
+  if (in_array('assets', $urlPathParts)) {
+
   } else {
     $route = new router($urlPathParts, $config);
   }

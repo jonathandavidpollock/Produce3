@@ -17,11 +17,13 @@ class components extends AppController {
   function make_nav() {
     $nav = array(
       "Home"=>"/welcome",
-      "API"=>"/api",
+      "Api"=>"/api",
       "Components"=>"/components",
-      "Login"=>"/welcome/login"
+      "Create Account"=>"/welcome/account",
+      "Login"=>"/welcome/login",
     );
-    $this->getView("navigation", $nav);
+    $data = array("pagename"=>"components");
+    $this->getView("navigation", $nav, $data);
   }
 
   function body_content(){

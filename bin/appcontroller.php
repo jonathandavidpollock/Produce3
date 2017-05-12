@@ -13,7 +13,7 @@ class AppController
       // WHy this and $this in URl Path parts on line
       $appcon = new $urlPathParts[0]($this);
 
-      if (isset($urlPathParts[1])) {
+      if (isset($urlPathParts[1]) && $urlPathParts[1] != '') {
         $appcon->$urlPathParts[1]($this);
       } else {
         $methodVariable = array($appcon, 'index' );
@@ -39,7 +39,7 @@ class AppController
 
   }
 
-  public function getView($page, $data = array()){
+  public function getView($page, $data = array(), $currentPage = "/"){
     require_once './views/'.$page.'.php';
   }
 
