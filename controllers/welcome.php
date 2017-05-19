@@ -1,13 +1,10 @@
 <?php
 
+
 class welcome extends AppController {
 
   public function __construct() {
-    // if(!empty($_SESSION["loggedin"])){
-    //   if($_SESSION["loggedin"] != "1") {
-    //     header("location:/welcome/login")
-    //   }
-    // }
+
   }
 
   function index() {
@@ -24,9 +21,16 @@ class welcome extends AppController {
       "Api"=>"/api",
       "Components"=>"/components",
       "Create Account"=>"/welcome/account",
-      "Login"=>"/welcome/login",
     );
     $this->getView("navigation", $nav, $data);
+  }
+
+  function createForm() {
+    $this->getView("addForm");
+  }
+
+  function addAction() {
+    var_dump($_REQUEST);
   }
 
   function account(){
@@ -34,7 +38,8 @@ class welcome extends AppController {
     $this->getView("header", $data);
     $page = array("pagename"=>"welcome/account");
     $this->make_nav($page);
-    $this->getView("createaccount");
+    $_SESSION["captcha"] = substr( md5(rand()), 0, 7);
+    $this->getView("createaccount",array("cap"=>$_SESSION["captcha"]));
     $this->getView("footer");
   }
 
@@ -42,17 +47,24 @@ class welcome extends AppController {
     $data = "<link rel='stylesheet' href='/assets/css/components.css'>";
     $this->getView("header", $data);
     $this->make_nav();
-    if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
-      echo "<h2 style='padding-top:15rem;'>email invalid</h2>";
+    if($_REQUEST["captcha"] == $_SESSION["captcha"]) {
+      if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+        echo "<h2 style='padding-top:15rem;'>Email invalid</h2>";
+        echo "<br><a href='/welcome/account'>Click here to go back</a>";
+      } else {
+        echo "<h2 style='padding-top:15rem;'>Email is valid</h2>";
+      }
+
+      if(!preg_match("/^[a-zA-Z]*$/", $_POST["password"])) {
+        echo "<h2>Select a different password</h2>";
+        echo "<br><a href='/welcome/account'>Click here to go back</a>";
+      } else {
+        echo "<p>Password is valid</p>";
+      }
     } else {
-      echo "<h2 style='padding-top:15rem;'>email valid</h2>";
+      echo "<h2 style='padding-top:15rem;'>Invalid!</h2>";
     }
 
-    if(!preg_match("/^[a-zA-Z]*$/", $_POST["password"])) {
-      echo "<h2>Select a different password</h2>";
-    } else {
-      echo "<p>Email is valid</p>";
-    }
     $this->getView("footer");
   }
 
@@ -68,26 +80,7 @@ class welcome extends AppController {
   }
 
 
-  function login() {
-    $data = "<link rel='stylesheet' href='/assets/css/components.css'>";
-    $this->getView("header", $data);
-    $this->getView("login");
-    $this->getView("footer");
-  }
 
-
-  // public function getFormValues() {
-  //   // var_dump($_REQUEST);
-  //   // if(@_REQUEST["username"] == "joe@aol.com" && @_REQUEST["password"]== "1234") {
-  //   //   if (preg_match('/@.+\./', $_REQUEST["username"])){
-  //   //       echo "good";
-  //   //   } else {
-  //   //   echo "bad";
-  //   // } else {
-  //   //   echo "bad";
-  //   // }
-  //
-  // }
 
 
 

@@ -12,15 +12,15 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <?php
       if($data !== null){
-        echo $data;
+        var_dump($data);
       }
     ?>
 
     <!-- Theme CSS -->
-    <link href="../assets/css/freelancer.min.css" rel="stylesheet">
+    <link href="/assets/css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

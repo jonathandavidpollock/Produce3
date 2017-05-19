@@ -20,7 +20,6 @@ class components extends AppController {
       "Api"=>"/api",
       "Components"=>"/components",
       "Create Account"=>"/welcome/account",
-      "Login"=>"/welcome/login",
     );
     $data = array("pagename"=>"components");
     $this->getView("navigation", $nav, $data);

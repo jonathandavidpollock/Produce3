@@ -25,6 +25,12 @@
     });
   });
 
+  $("#showLogin").click(function(e){
+    console.log("clicked");
+    e.preventDefault();
+    $("#log").toggle();
+  });
+
 
 
 })();
