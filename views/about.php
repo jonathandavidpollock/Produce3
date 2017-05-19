@@ -1,6 +1,6 @@
 <div class="container">
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
+        <h1 style="padding-top:15rem;">Bootstrap starter template</h1>
         <p><a href="/about/showAddForm">Add New</a></p>
 
     <?php
