@@ -11,9 +11,10 @@
       </form>
 
       <div class="header">
-        <h1><?php echo $_SESSION['user']['username']?></h1>
+
+        <h1><?= $_SESSION['user']['username']?></h1>
         <h4>Web Developer</h4>
-        <span><?php echo $_SESSION['user']['userDesc']?></span>
+        <span><?= $_SESSION['user']['userDesc']?></span>
       </div>
   </div>
 </div>

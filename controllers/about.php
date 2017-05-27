@@ -3,7 +3,12 @@
 class about extends AppController {
 
   public function __construct($parent) {
-    $this->parent = $parent;
+    if($_SESSION["loggedin"] && $_SESSION["loggedin"]==1) {
+      $this->parent = $parent;
+    } else {
+      header("Location:/welcome");
+    }
+
   }
 
   public function index() {

@@ -26,11 +26,25 @@ class api extends AppController {
   }
 
   function body_content(){
-    $data = "<link rel='stylesheet' href='assets/css/components.css'>";
-    include "views/components/carousel.php";
-    include "views/components/modal.php";
-    include "views/components/popovers.php";
-    include "views/components/progressbar.php";
+    $this->getView("api");
+  }
+
+  function process() {
+    $query = $_REQUEST['query'];
+    $url = 'https://www.googleapis.com/books/v1/volumes?q='.$query.'=lite&key=AIzaSyBUiHCeRGYU4v9wZpK-Rn39Sved22hlNeo';
+
+    $ch = curl_init();
+      curl_setopt_array($ch, array(
+          CURLOPT_URL => $url,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_SSL_VERIFYPEER => false,
+          CURLOPT_SSL_VERIFYHOST =>2
+    ));
+
+    $result = curl_exec($ch);
+    curl_close($ch);
+    echo $result;
+
   }
 
 }

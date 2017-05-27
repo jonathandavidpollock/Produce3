@@ -23,19 +23,16 @@
                           echo "<li><a href='" . $val . "'>" . $key . "</a></li>";
                         }
                       }
-                      echo "<li><a href='/about' id='about'>About</a></li>";
                       echo "<li><a href='#' id='showLogin'>LOGIN</a></li>";
 
                     ?>
                 </ul>
                 <span style="color:red"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]: '';?></span>
                 <?php if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){ ?>
-                  <!-- Why Did you wrap this in form tag -->
-  <!------------------------------>
                   <div class="navbar-form navbar-right">
+                    <a href="/about">About</a>
                     <a href="/profile">Profile</a>
                     <a href="/auth/logout">Logout</a>
-                    <a href="/about"
                   </div>
                 <?php } else{ ?>
                   <form class="navbar-form navbar-right" role="search" method="POST" action="/auth/login" id="log">
